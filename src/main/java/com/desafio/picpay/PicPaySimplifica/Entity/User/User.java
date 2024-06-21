@@ -1,18 +1,28 @@
 package com.desafio.picpay.PicPaySimplifica.Entity.User;
 
+import com.desafio.picpay.PicPaySimplifica.Dtos.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 
-@Entity(name = "User")
-@Table(name = "User")
+@Entity(name = "Usuarios")
+@Table(name = "Usuarios")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class User {
+
+    public User(UserDto userDto) {
+        this.nomeCompleto = userDto.nomeCompleto;
+        this.email = userDto.email;
+        this.senha = userDto.senha;
+        this.documento = userDto.documento;
+        this.saldo = userDto.saldo;
+        this.type = userDto.tipo;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +44,3 @@ public class User {
     private UserType type;
 
 }
-
