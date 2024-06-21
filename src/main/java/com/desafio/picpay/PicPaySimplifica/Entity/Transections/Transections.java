@@ -23,7 +23,7 @@ public class Transections {
     private User sender;
 
     @ManyToOne
-    private User Reciver;
+    private User reciver;
 
-    private BigDecimal value;
+    private BigDecimal amount;
 }
