@@ -4,6 +4,7 @@ import com.desafio.picpay.PicPaySimplifica.Dtos.UserDto;
 import com.desafio.picpay.PicPaySimplifica.Entity.User.User;
 import com.desafio.picpay.PicPaySimplifica.Repository.TransectionsRepository;
 import com.desafio.picpay.PicPaySimplifica.Service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class UsuarioController {
     private TransectionsRepository transectionsRepository;
 
     @PostMapping
-    public ResponseEntity<User> CreateUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<User> CreateUser(@Valid @RequestBody UserDto userDto) {
         User user = usuarioService.createUser(userDto);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
