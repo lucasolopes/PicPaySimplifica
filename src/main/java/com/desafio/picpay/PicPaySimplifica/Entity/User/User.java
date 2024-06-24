@@ -15,6 +15,19 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(of = "id")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nomeCompleto;
+    @Column(unique = true)
+    private String documento;
+    @Column(unique = true)
+    private String email;
+    private String senha;
+    private BigDecimal saldo;
+    @Enumerated(EnumType.STRING)
+    private UserType type;
+
     public User(UserDto userDto) {
         this.nomeCompleto = userDto.nomeCompleto;
         this.email = userDto.email;
@@ -23,24 +36,5 @@ public class User {
         this.saldo = userDto.saldo;
         this.type = userDto.tipo;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String nomeCompleto;
-
-    @Column(unique = true)
-    private String documento;
-
-    @Column(unique = true)
-    private String email;
-
-    private String senha;
-
-    private BigDecimal saldo;
-
-    @Enumerated(EnumType.STRING)
-    private UserType type;
 
 }
