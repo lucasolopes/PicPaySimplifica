@@ -1,13 +1,12 @@
 package com.desafio.picpay.PicPaySimplifica.Dtos;
 
-import java.math.BigDecimal;
-
 import com.desafio.picpay.PicPaySimplifica.Entity.User.UserType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
