@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public void validatedTransection(User sender, BigDecimal amount) throws Exception {
-        if (sender.getType() == UserType.Logista) {
+        if (sender.getType() == UserType.Lojista) {
             throw new Exception("Usuario é do tipo Logista. Nao esta autorizado a realizar tranzacao");
         }
         if (sender.getSaldo().compareTo(amount) < 0) {
