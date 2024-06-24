@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity(name = "Transections")
 @Table(name = "Transections")
@@ -26,4 +27,6 @@ public class Transections {
     private User reciver;
 
     private BigDecimal amount;
+
+    private LocalDateTime timeStamp;
 }
