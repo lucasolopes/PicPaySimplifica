@@ -5,14 +5,11 @@ import com.desafio.picpay.PicPaySimplifica.Entity.Transections.Transections;
 import com.desafio.picpay.PicPaySimplifica.Entity.User.User;
 import com.desafio.picpay.PicPaySimplifica.Repository.TransectionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 
 @Service
@@ -53,19 +50,20 @@ public class TransectionsService {
         this.userService.saveUser(sender);
         this.userService.saveUser(reciver);
 
-        this.notificacaoService.sendNotificacao(sender, "transacao realizada com sucesso!");
+        //this.notificacaoService.sendNotificacao(sender, "transacao realizada com sucesso!");
 
-        this.notificacaoService.sendNotificacao(reciver, "transacao recebida com sucesso!");
+        //this.notificacaoService.sendNotificacao(reciver, "transacao recebida com sucesso!");
 
         return newTransection;
     }
 
     public boolean authorizeTransaction(User sender, BigDecimal value) {
-        ResponseEntity<Map> autorizeResponse = restTemplate.getForEntity("https://util.devi.tools/api/v2/authorize", Map.class);
+       /* ResponseEntity<Map> autorizeResponse = restTemplate.getForEntity("https://util.devi.tools/api/v2/authorize", Map.class);
         if (autorizeResponse.getStatusCode() == HttpStatus.OK) {
             String message = (String) autorizeResponse.getBody().get("message");
             return "Autorizado".equalsIgnoreCase(message);
-        } else return false;
+        } else return false;*/
+        return true;
     }
 
 
